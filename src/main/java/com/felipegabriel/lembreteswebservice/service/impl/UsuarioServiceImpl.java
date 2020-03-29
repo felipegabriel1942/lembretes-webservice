@@ -23,4 +23,9 @@ public class UsuarioServiceImpl implements UsuarioService{
 		return repository.buscarUsuarioPorEmail(email);
 	}
 
+	@Override
+	public Usuario buscarUsuarioPorPK(Integer pkUsuario) {
+		return repository.findById(pkUsuario).orElse(null);
+	}
+
 }

@@ -7,4 +7,6 @@ public interface UsuarioService {
 	Usuario salvarUsuario(Usuario usuario);
 	
 	Usuario buscarUsuarioPorEmail(String email);
+	
+	Usuario buscarUsuarioPorPK(Integer pkUsuario);
 }

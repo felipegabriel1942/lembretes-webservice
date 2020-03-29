@@ -37,4 +37,13 @@ public class UsuarioController {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
 	}
+	
+	@GetMapping(value = "buscar-usuario-pk")
+	public ResponseEntity<Usuario> buscarUsuarioPorPk(@RequestParam("pkUsuario") Integer pkUsuario) {
+		try {
+			return ResponseEntity.ok(service.buscarUsuarioPorPK(pkUsuario));
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+		}
+	}
 }
