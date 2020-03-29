@@ -19,8 +19,8 @@ public class UsuarioServiceImpl implements UsuarioService{
 	}
 
 	@Override
-	public Usuario buscarUsuarioPorEmailESenha(String email, String senha) {
-		return repository.buscarUsuarioPorEmailESenha(email, senha);
+	public Usuario buscarUsuarioPorEmail(String email) {
+		return repository.buscarUsuarioPorEmail(email);
 	}
 
 }

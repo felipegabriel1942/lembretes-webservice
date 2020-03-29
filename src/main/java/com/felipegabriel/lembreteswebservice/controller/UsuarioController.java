@@ -29,11 +29,10 @@ public class UsuarioController {
 		}
 	}
 	
-	@GetMapping(value = "buscar-usuario-email-e-senha")
-	public ResponseEntity<Usuario> buscarUsuarioPorEmailESenha(@RequestParam("email") String email,
-			@RequestParam("senha") String senha) {
+	@GetMapping(value = "buscar-usuario-email")
+	public ResponseEntity<Usuario> buscarUsuarioPorEmail(@RequestParam("email") String email) {
 		try {
-			return ResponseEntity.ok(service.buscarUsuarioPorEmailESenha(email, senha));
+			return ResponseEntity.ok(service.buscarUsuarioPorEmail(email));
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}

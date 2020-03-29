@@ -6,5 +6,5 @@ public interface UsuarioService {
 	
 	Usuario salvarUsuario(Usuario usuario);
 	
-	Usuario buscarUsuarioPorEmailESenha(String email, String senha);
+	Usuario buscarUsuarioPorEmail(String email);
 }
