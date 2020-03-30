@@ -4,7 +4,7 @@ import com.felipegabriel.lembreteswebservice.model.Usuario;
 
 public interface UsuarioService {
 	
-	Usuario salvarUsuario(Usuario usuario);
+	void salvarUsuario(Usuario usuario);
 	
 	Usuario buscarUsuarioPorEmail(String email);
 	

@@ -1,6 +1,7 @@
 package com.felipegabriel.lembreteswebservice.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import com.felipegabriel.lembreteswebservice.model.Usuario;
@@ -14,8 +15,11 @@ public class UsuarioServiceImpl implements UsuarioService{
 	UsuarioRepository repository;
 
 	@Override
-	public Usuario salvarUsuario(Usuario usuario) {
-		return repository.save(usuario);
+	public void salvarUsuario(Usuario usuario) {
+		String salt = BCrypt.gensalt(12);
+		String senhaCriptografada = BCrypt.hashpw(usuario.getSenha(), salt);
+		usuario.setSenha(senhaCriptografada);
+		repository.save(usuario);
 	}
 
 	@Override
