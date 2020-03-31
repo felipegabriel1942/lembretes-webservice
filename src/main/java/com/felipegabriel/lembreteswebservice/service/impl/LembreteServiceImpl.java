@@ -1,7 +1,5 @@
 package com.felipegabriel.lembreteswebservice.service.impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -48,8 +46,8 @@ public class LembreteServiceImpl implements LembreteService{
 	}
 
 	@Override
-	public List<Lembrete> listarLembretesPorTitulo(String titulo, Integer pkUsuario) {
-		return repository.listarLembretesPorTitulo(titulo.toUpperCase(), pkUsuario);
+	public Page<Lembrete> listarLembretesPorTitulo(Integer pagina, Integer qtdRegistros, String titulo, Integer pkUsuario) {
+		return repository.listarLembretesPorTitulo(titulo.toUpperCase(), pkUsuario, PageRequest.of(pagina, qtdRegistros));
 	}
 
 }

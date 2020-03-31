@@ -1,7 +1,5 @@
 package com.felipegabriel.lembreteswebservice.service;
 
-import java.util.List;
-
 import org.springframework.data.domain.Page;
 
 import com.felipegabriel.lembreteswebservice.model.Lembrete;
@@ -18,6 +16,6 @@ public interface LembreteService {
 	
 	Page<Lembrete> listarLembretes(Integer pagina, Integer qtdRegistros, Integer pkUsuario);
 	
-	List<Lembrete> listarLembretesPorTitulo(String titulo, Integer pkUsuario);
+	Page<Lembrete> listarLembretesPorTitulo(Integer pagina, Integer qtdRegistros, String titulo, Integer pkUsuario);
 	
 }

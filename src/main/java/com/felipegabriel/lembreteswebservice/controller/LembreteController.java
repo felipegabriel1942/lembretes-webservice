@@ -1,7 +1,5 @@
 package com.felipegabriel.lembreteswebservice.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -74,10 +72,12 @@ public class LembreteController {
 	}
 	
 	@GetMapping(value = "listar-lembretes-por-titulo")
-	public ResponseEntity<List<Lembrete>> listarLembretesPorTitulo(@RequestParam("titulo") String titulo,
+	public ResponseEntity<Page<Lembrete>> listarLembretesPorTitulo(@RequestParam("pagina") Integer pagina,
+			@RequestParam("qtdRegistros") Integer qtdRegistros,
+			@RequestParam("titulo") String titulo,
 			@RequestParam("pkUsuario") Integer pkUsuario) {
 		try {
-			return ResponseEntity.ok(service.listarLembretesPorTitulo(titulo , pkUsuario));
+			return ResponseEntity.ok(service.listarLembretesPorTitulo(pagina, qtdRegistros, titulo , pkUsuario));
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
