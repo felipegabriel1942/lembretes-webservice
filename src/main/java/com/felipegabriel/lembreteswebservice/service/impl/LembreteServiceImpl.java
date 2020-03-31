@@ -50,4 +50,9 @@ public class LembreteServiceImpl implements LembreteService{
 		return repository.listarLembretesPorTitulo(titulo.toUpperCase(), pkUsuario, PageRequest.of(pagina, qtdRegistros));
 	}
 
+	@Override
+	public long contarLembretesUsuario(Integer pkUsuario) {
+		return repository.contarLembretesUsuario(pkUsuario);
+	}
+
 }

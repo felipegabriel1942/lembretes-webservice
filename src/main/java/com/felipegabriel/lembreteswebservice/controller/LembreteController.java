@@ -41,6 +41,15 @@ public class LembreteController {
 		}
 	}
 	
+	@GetMapping(value = "total-lembretes-usuario")
+	public ResponseEntity<?> contarLembretesUsuario(@RequestParam("pkUsuario") Integer pkusuario) {
+		try {
+			return ResponseEntity.ok(service.contarLembretesUsuario(pkusuario));
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+		}
+	}
+	
 	@DeleteMapping
 	public ResponseEntity<Void> deletarLembrete(@RequestParam("pkLembrete") Integer pkLembrete) {
 		try {

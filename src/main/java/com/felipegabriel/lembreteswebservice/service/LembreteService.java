@@ -14,6 +14,8 @@ public interface LembreteService {
 	
 	Lembrete atualizarLembrete(Lembrete lembrete);
 	
+	long contarLembretesUsuario(Integer pkUsuario);
+	
 	Page<Lembrete> listarLembretes(Integer pagina, Integer qtdRegistros, Integer pkUsuario);
 	
 	Page<Lembrete> listarLembretesPorTitulo(Integer pagina, Integer qtdRegistros, String titulo, Integer pkUsuario);
